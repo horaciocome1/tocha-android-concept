@@ -30,3 +30,6 @@ collectionReference.searchWithTocha()    // for Java use Tocha.getInstance(colle
         // handle snapshot of results collection
     }
 ```
+
+## Downsides
+By default this is not compatible with the tocha library. Only if the tocha library throw the results to an subcollection name results. Pheraps on willing to use this android concept might want to customize its own tocha implementation. Also, this is just an concept and have no ETAs.
