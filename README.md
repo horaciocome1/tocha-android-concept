@@ -10,7 +10,9 @@ val collectionReference = db.collection("users")
 collectionReference.searchWithTocha()    // for Java use Tocha.getInstance(collectionReference)
     .addField("name")
     .addField("bio")
-    .searchFor("John", SearchOptions.startWith())
+    .searchFor("John", SearchOptions.startWith()) {
+        // called if back-end operation were not successful 
+    }
     .addSnapshotListener { snapshot, exception ->
         // handle snapshot of results collection
     }
@@ -22,7 +24,9 @@ val collectionReference = db.collection("users")
 collectionReference.searchWithTocha()    // for Java use Tocha.getInstance(collectionReference)
     .addField("name")
     .addField("bio")
-    .searchFor("John", SearchOptions.startWith())
+    .searchFor("John", SearchOptions.startWith()) {
+        // called if back-end operation were not successful 
+    }
     .whereGreaterThanOrEqualTo("score", 0.8)
     .orderBy("score", Query.Direction.DESCENDING)
     .limit(15)
@@ -32,4 +36,4 @@ collectionReference.searchWithTocha()    // for Java use Tocha.getInstance(colle
 ```
 
 ## Downsides
-By default this is not compatible with the tocha library. Only if the tocha library throw the results to an subcollection name results. Pheraps on willing to use this android concept might want to customize its own tocha implementation. Also, this is just an concept and have no ETAs.
+By default this is not fully compatible with the tocha library. Only if the tocha library thrown the results to an subcollection named results. Pheraps one willing to implement this android concept might want to customize its own tocha implementation. Also, this is just an concept and have no ETAs.
